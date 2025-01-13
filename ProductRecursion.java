@@ -1,28 +1,35 @@
 import java.util.Scanner;
 
 class ProductRecursion {
+    //method to find product
     public static int product(int[] nums, int amount){
-        if(amount == nums.length){
-            return 0;
+        //base case
+        if(amount == 1){
+            return nums[0];
         }
-        else{
-            return nums[amount] * product(nums, amount + 1);
-        }
-
+        //recursive case
+        return nums[amount - 1] * product(nums, amount -1);
     }
-        public static void main(String[] args) throws Exception {
-            Scanner scnr = new Scanner(System.in);
-            int[] nums = new int[4];
-            int count = 0;
-            System.out.println("Output five numbers to find their product: ");
-            while(nums[count] = scnr.hasNextInt();){
 
+    //main method
+    public static void main(String[] args) throws Exception {
+        //initializes variables
+        Scanner scnr = new Scanner(System.in);
+        int[] nums = new int[5];
 
+        //prompts user for five numbers and scans them
+        System.out.println("Input five numbers to find their product: ");
+        for(int i = 0; i < 5; i++){
+            if(scnr.hasNextInt()){
+                nums[i] = scnr.nextInt();
             }
-            //for(int i =0; i < 5; i++){
-            //    nums[i] = scnr.nextInt();
-            //}
-            scnr.close();
-            System.out.println("The product of those numbers is: " + product(nums, 5));
+            else{
+                System.out.println("Please input the correct number amount.");
+            }
         }
+
+        scnr.close();
+
+        System.out.println("The product of those numbers is: " + product(nums, 5));
+    }
 }
