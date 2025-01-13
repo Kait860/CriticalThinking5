@@ -20,16 +20,10 @@ class ProductRecursion {
         //prompts user for five numbers and scans them
         System.out.println("Input five numbers to find their product: ");
         for(int i = 0; i < 5; i++){
-            if(scnr.hasNextInt()){
-                nums[i] = scnr.nextInt();
-            }
-            else{
-                System.out.println("Please input the correct number amount.");
-            }
+            nums[i] = scnr.nextInt();
         }
-
+        //closes scanner and prints the product
         scnr.close();
-
         System.out.println("The product of those numbers is: " + product(nums, 5));
     }
 }
